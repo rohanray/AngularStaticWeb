@@ -1,75 +1,59 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler} from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
-import { RouterModule, Routes } from '@angular/router';
-import { EdsnavigationComponent } from './shared/edsnavigation/edsnavigation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActivityTimerComponent } from './user-dashboard/activity-timer/activity-timer.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
+import {
+  MatGridListModule,
+  MatCardModule,
+  MatMenuModule,
+  MatIconModule,
+  MatButtonModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatProgressSpinnerModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule,
+  MatTabsModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
+} from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './shared/auth/login/login.component';
-import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { MyProductivityChartComponent } from './dashboard/my-productivity-chart/my-productivity-chart.component';
-import { WorkItemsGridComponent } from './dashboard/work-items-grid/work-items-grid.component';
-import { GlobalErrorComponent }  from './global-error.component';
-import { PageNotFoundComponent }  from './page-not-found.component';
-import { GlobalErrorHandlerService } from './global-error-handler.service';
-import {
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatTableModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTabsModule,
-    MatFormFieldModule,
-    MatInputModule,
-} from '@angular/material';
-import { SearchClaimComponent } from './dashboard/search-claim/search-claim.component';
-import { ViewClaimComponent } from './dashboard/search-claim/view-claim/view-claim.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'search-claim', component: SearchClaimComponent },
-  { path: 'view-claim', component: ViewClaimComponent },
-	{
-	  path: 'error',
-	   component: GlobalErrorComponent
-	},{
-	   path: '**',
-	   component: PageNotFoundComponent 
-      }
-];
-
+import { APP_BASE_HREF } from '@angular/common';
+import { MyProductivityChartComponent } from './user-dashboard/my-productivity-chart/my-productivity-chart.component';
+import { PendboxGridComponent } from './user-dashboard/pendbox-grid/pendbox-grid.component';
+import { EDSNavigationComponent } from './edsnavigation/edsnavigation.component';
+import { AppRoutingModule } from './routing.module';
+import { WorkItemComponent } from './work-item/work-item.component';
+import { SearchComponent } from './user-dashboard/search/search.component';
+import { ViewResultsComponent } from './user-dashboard/search/view-results/view-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    EdsnavigationComponent,
-    DashboardComponent,
+    UserDashboardComponent,
+    ActivityTimerComponent,
     MyProductivityChartComponent,
-    WorkItemsGridComponent,
-    GlobalErrorComponent,
-		PageNotFoundComponent,
-		SearchClaimComponent,
-		ViewClaimComponent
+    PendboxGridComponent,
+    EDSNavigationComponent,
+    WorkItemComponent,
+    SearchComponent,
+    ViewResultsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    LayoutModule,
-    HttpClientModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
@@ -84,20 +68,22 @@ const routes: Routes = [
     HttpClientModule,
     MatSidenavModule,
     MatListModule,
+    AppRoutingModule,
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterModule.forRoot(
-      routes,
-      {
-        enableTracing: true, // <-- debugging purposes only
-        preloadingStrategy: SelectivePreloadingStrategy,
-      }
-    )
+    FlexLayoutModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [SelectivePreloadingStrategy,
-  GlobalErrorHandlerService,
-    { provide: ErrorHandler, useClass: GlobalErrorHandlerService }],
+  providers: [
+    {
+      provide: APP_BASE_HREF,
+      useValue: '/' + (window.location.pathname.split('/')[1] || '')
+    },
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

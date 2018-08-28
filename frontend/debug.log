@@ -1,0 +1,3 @@
+[0724/155432.766:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0814/124825:ERROR:tcp_listen_socket.cc(76)] Could not bind socket to 127.0.0.1:6004
+[0814/124825:ERROR:node_debugger.cc(86)] Cannot start debugger server

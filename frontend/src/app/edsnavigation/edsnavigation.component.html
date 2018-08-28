@@ -1,0 +1,28 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Humana</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#" routerLink="/newworkitem" routerLinkActive="active">Draw - New Workitem</a>
+      <a mat-list-item href="#" routerLink="/pendedworkitem" routerLinkActive="active">Draw - Pended Workitem</a>
+      <a mat-list-item href="#" routerLink="/demandworkitem" routerLinkActive="active">Draw - On Demand</a>
+      <a mat-list-item href="#" routerLink="/search" routerLinkActive="active">S690 - Search</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar-header">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Agile Encounter Managment</span>
+
+      <span class="toolbar-spacer"></span>
+      <span class="toolbar-icon">First Name, Last Name</span>
+      <span></span>
+      <mat-icon class="toolbar-icon">pause</mat-icon>
+      <mat-icon class="toolbar-icon">lock</mat-icon>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
