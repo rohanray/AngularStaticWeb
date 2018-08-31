@@ -1,0 +1,53 @@
+<div class="parent-container">
+  <form class="form-container">
+
+    <mat-form-field class="width-50">
+      <input matInput placeholder="Contract Id">
+    </mat-form-field>
+
+    <mat-form-field class="width-50 padding-left-20">
+      <mat-select placeholder="Select Claim Payment">
+        <mat-option value="option">Option 1</mat-option>
+        <mat-option value="option">Option 2</mat-option>
+        <mat-option value="option">Option 3</mat-option>
+        <mat-option value="option">Option 4</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="width-100">
+      <input matInput placeholder="Diagnosis">
+    </mat-form-field>
+
+    <mat-form-field class="width-100">
+      <input matInput placeholder="UMID">
+    </mat-form-field>
+
+    <!-- <mat-form-field class="width-100">
+      <textarea matInput placeholder="Textarea"></textarea>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a start date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="endpicker" placeholder="Choose an end date">
+      <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
+      <mat-datepicker #endpicker startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="float-right" type="button" (click)="submitSearch()">Search</button>
+    <button mat-raised-button color="primary" class="float-right" type="button">Reset</button>
+
+  </form>
+</div>
+
+<div class="parent-container" *ngIf="showSpinner">
+  <mat-spinner diameter="20" class="margin-auto"></mat-spinner>
+</div>
+
+<div class="mat-elevation-z8" *ngIf="showResults">
+  <app-view-results></app-view-results>
+</div>

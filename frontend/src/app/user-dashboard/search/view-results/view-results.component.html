@@ -1,0 +1,37 @@
+<table mat-table [dataSource]="dataSource">
+
+  <div *ngFor="let element of resultsData">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Contract Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.contractId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Claim Payment </th>
+      <td mat-cell *matCellDef="let element"> {{element.claimPayment}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Diagnosis </th>
+      <td mat-cell *matCellDef="let element"> {{element.diagnosis}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> UMID </th>
+      <td mat-cell *matCellDef="let element"> {{element.umid}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Current Activity State </th>
+      <td mat-cell *matCellDef="let element"> {{element.currentActivityState}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Current Activity State Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.currentActivityStateDate}} </td>
+    </ng-container>
+  </div>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
