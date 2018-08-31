@@ -1,7 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/xq-light.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+.ngx-codemirror {
+  margin: 10px;
+  border: 1px solid #ccc;
+}
+
+.CodeMirror {
+  height: auto;
+}

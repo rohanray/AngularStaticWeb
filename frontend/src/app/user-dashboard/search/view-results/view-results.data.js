@@ -1,4 +1,4 @@
-[
+export default [
   {
     "contractId": "A123",
     "claimPayment": "Pay 1",

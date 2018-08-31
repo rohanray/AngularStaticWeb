@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import ResultsData from './view-results.data.json';
+import ResultsData from './view-results.data';
 
 @Component({
   selector: 'app-view-results',

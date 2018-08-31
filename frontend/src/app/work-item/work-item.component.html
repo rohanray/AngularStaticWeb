@@ -93,5 +93,9 @@
         </textarea>
     </mat-form-field>
   </mat-tab>
-  <mat-tab label="Errors"> Errors </mat-tab>
+  <mat-tab label="Errors">
+    <div class="ngx-codemirror mb-2">
+      <ngx-codemirror [options]="options" [ngModel]="defaults[mode]" [disabled]="readOnly" [autoFocus]="true" (ngModelChange)="handleChange($event)"></ngx-codemirror>
+    </div>
+  </mat-tab>
 </mat-tab-group>

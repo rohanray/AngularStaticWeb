@@ -1,5 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -75,7 +77,9 @@ import { ViewResultsComponent } from './user-dashboard/search/view-results/view-
     FlexLayoutModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FormsModule,
+    CodemirrorModule
   ],
   providers: [
     {
@@ -86,4 +90,4 @@ import { ViewResultsComponent } from './user-dashboard/search/view-results/view-
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
