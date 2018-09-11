@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { MonacoEditorModule } from 'ngx-monaco';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +41,9 @@ import { AppRoutingModule } from './routing.module';
 import { WorkItemComponent } from './work-item/work-item.component';
 import { SearchComponent } from './user-dashboard/search/search.component';
 import { ViewResultsComponent } from './user-dashboard/search/view-results/view-results.component';
+import { X12EditorComponent } from './x12-editor/x12-editor.component';
+import { MonacoComponent } from './monaco/monaco.component';
+import { FriendlyX12Component } from './friendly-x12/friendly-x12.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,10 @@ import { ViewResultsComponent } from './user-dashboard/search/view-results/view-
     EDSNavigationComponent,
     WorkItemComponent,
     SearchComponent,
-    ViewResultsComponent
+    ViewResultsComponent,
+    X12EditorComponent,
+    MonacoComponent,
+    FriendlyX12Component
   ],
   imports: [
     BrowserModule,
@@ -79,7 +86,8 @@ import { ViewResultsComponent } from './user-dashboard/search/view-results/view-
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
-    CodemirrorModule
+    CodemirrorModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [
     {
@@ -90,4 +98,4 @@ import { ViewResultsComponent } from './user-dashboard/search/view-results/view-
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

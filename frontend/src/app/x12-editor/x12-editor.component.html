@@ -1,0 +1,4 @@
+<div class="ngx-codemirror ">
+  <ngx-codemirror [options]="options" [(ngModel)]="defaults[mode]" [disabled]="readOnly" [autoFocus]="true"
+    (ngModelChange)="handleChange($event)" (cursorActivity)="cursorMoved()" #editor></ngx-codemirror>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { CodemirrorComponent } from '@ctrl/ngx-codemirror';
 import { Doc, TextMarker } from 'codemirror';
 
@@ -70,11 +70,11 @@ IEA*1*180120275~`
 };
 
 @Component({
-  selector: 'app-work-item',
-  templateUrl: './work-item.component.html',
-  styleUrls: ['./work-item.component.css']
+  selector: 'app-x12-editor',
+  templateUrl: './x12-editor.component.html',
+  styleUrls: ['./x12-editor.component.css']
 })
-export class WorkItemComponent implements OnInit, AfterViewInit {
+export class X12EditorComponent implements OnInit, AfterViewInit {
   @ViewChild('editor')
   editor: CodemirrorComponent;
 
@@ -93,28 +93,42 @@ export class WorkItemComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-    console.log(`codemirror logger: `);
-    // console.log(this.editor.codeMirror.getDoc());
-    console.log(this.doc);
-    // this.doc.addLineClass(3, 'wrap', 'test-codeMirror-highlight');
-    // this.editor.codeMirror.autoFormatRange(0, 1);
+    // this.doc.addLineClass(3, 'gutter', 'gutter-error'); // THIS IS WORKING
   }
 
   cursorMoved() {
     const cursorPos = this.doc.getCursor();
-    console.log(cursorPos);
+    this.doc.addLineClass(3, 'gutter', 'gutter-error'); // THIS IS WORKING
+    this.doc.addLineClass(6, 'gutter', 'gutter-error'); // THIS IS WORKING
+    this.doc.addLineClass(10, 'gutter', 'gutter-error'); // THIS IS WORKING
 
+    // setTimeout(() => {
+    //   this.doc.removeLineClass(3, 'gutter', 'gutter-error'); // THIS IS WORKING
+    // }, 3000);
+    // console.log('1');
+    // console.log(cursorPos);
+    // console.log('2');
+    // // console.log(this.doc.lineInfo(3));
+    // console.log('3');
+    // // console.log(this.doc.lineSeparator());
+    // console.log('4');
+    // this.doc.addLineClass(3, 'gutter', 'CodeMirror-gutter-background');
+    // this.editor.codeMirror.addLineClass(
+    //   3,
+    //   'background',
+    //   'CodeMirror-gutter-background'
+    // );
     // this.doc.getEditor().addLineClass(3, 'wrap', 'test-codeMirror-highlight');
 
     // const cursorPos = this.editor.codeMirror.getDoc().getCursor();
-    this.editor.codeMirror
-      .getDoc()
-      .getEditor()
-      .addLineClass(3, 'wrap', 'test-codeMirror-highlight');
+    // this.editor.codeMirror.addLineClass(3, 'wrap', 'test-codeMirror-highlight');
+    // .getDoc()
+    // .getEditor()
+    // .addLineClass(3, 'wrap', 'test-codeMirror-highlight');
   }
 
   handleChange($event) {
-    console.log('ngModelChange', $event);
+    // console.log('ngModelChange', $event);
   }
 
   get doc() {

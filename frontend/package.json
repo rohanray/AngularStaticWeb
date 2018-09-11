@@ -27,7 +27,9 @@
     "codemirror": "^5.40.0",
     "core-js": "^2.5.4",
     "d3": "^5.5.0",
+    "monaco-editor": "^0.14.3",
     "ngx-editor": "^3.3.0",
+    "ngx-monaco": "^0.8.0",
     "rxjs": "^6.2.2",
     "zone.js": "^0.8.26"
   },
